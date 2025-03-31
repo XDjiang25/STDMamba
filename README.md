@@ -12,6 +12,7 @@ Compared to the current SOTA models, STDMamba achieves superior performance on t
 
 ![main results](fig_INO.png "main results")
 
-🚩**News**(February 23, 2025): We aim to replace the original bi-directional mechanism, commonly used in most time series models, with the inner bi-directional Mamba mechanism we newly proposed.
+🚩**News**(February 23, 2025): To the best of our knowledge, this is the first time we have introduced state-space modeling, or linear attention, to SST prediction, and we will continue to innovate and improve in this direction, so if you are interested, please follow me on twitter!
+🚩**News**(March 31, 2025): We aim to continue to replace the original bi-directional mechanism, commonly used in most time series models, with the directional Mamba mechanism we newly proposed.
 
 
