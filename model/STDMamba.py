@@ -139,15 +139,15 @@ class ICB(nn.Module):
         return x
 
 
-class LD(nn.Module):
+class GD(nn.Module):
     def __init__(self,LDkernel_size=25):
-        super(LD, self).__init__()
-        # Define a shared convolution layers for all channels
-        self.conv=nn.Conv1d(1, 1, kernel_size=LDkernel_size, stride=1, padding=int(LDkernel_size//2), padding_mode='replicate', bias=True) 
-        # Define the parameters for Gaussian initialization
+        super(GD, self).__init__()
+        #Gaussian initialization
+        self.conv=nn.Conv1d(1, 1, kernel_size=GDkernel_size, stride=1, padding=int(LDkernel_size//2), padding_mode='replicate', bias=True) 
+        
         kernel_size_half = LDkernel_size // 2
-        sigma = 1.0  # 1 for variance
-        weights = torch.zeros(1, 1, LDkernel_size)
+        sigma = 1.0  # 1 for variance stable
+        weights = torch.zeros(1, 1, GDkernel_size)
         for i in range(LDkernel_size):
             weights[0, 0, i] = math.exp(-((i - kernel_size_half) / (2 * sigma)) ** 2)
 
@@ -171,9 +171,7 @@ class LD(nn.Module):
     
        
 class Model(nn.Module):
-    """
-    Paper link: https://arxiv.org/abs/2310.06625
-    """
+
 #just make sure d_model * expand / headdim = multiple of 8
 # headdim = 64
 # 128 
@@ -285,10 +283,10 @@ class Model(nn.Module):
         enc_out, attns = self.encoder(residual, attn_mask=None)
         #outintra, attns = self.encoder(resintra,attn_mask=None)
         # B N E -> B N S -> B S N
-        #现在enc_out就是B N E
+        #
         
 
-        #不用icb
+        #
         # output = enc_out # B N E
         # enc_out = enc_out.permute(0,2,1) # B N E -> B E N
         # enc_out = self.dw(enc_out)
@@ -298,9 +296,9 @@ class Model(nn.Module):
         # enc_out = self.ffn1drop2(self.ffn1pw2(enc_out))
         # enc_out = enc_out.permute(0,2,1) # B E N -> B N E
         # enc_out = enc_out + output
-        #用icb
+        #
         output = enc_out # B N E
-        dec_out0 = output + main ##未进行处理的Season+Trend
+        dec_out0 = output + main ##Season + Trend
         dec_out0 = self.projector(dec_out0).permute(0, 2, 1)[:, :, :N]  
         
         enc_out = enc_out.permute(0,2,1) # B N E -> B E N
@@ -323,11 +321,11 @@ class Model(nn.Module):
         #enc_out = self.ffn1act(enc_out)
         #enc_out = self.ffn1drop2(self.ffn1pw2(enc_out))
         enc_out = enc_out.permute(0,2,1) # B E N -> B N E
-        #enc_out = enc_out + output ##未进行linear的Season
+        #enc_out = enc_out + output ## no linear Season
                    
         #enc_out = enc_out + outintra                     
         ##projection
-        main0 = main ##未进行linear的Trend
+        main0 = main ##no linear Trend
         #print("enc_out:",enc_out.size())
         #print("main0:",main0.size())
         dec_out = main + enc_out 
@@ -353,7 +351,7 @@ class Model(nn.Module):
             dec_out = dec_out * (stdev[:, 0, :].unsqueeze(1).repeat(1, self.pred_len, 1))
             dec_out = dec_out + (means[:, 0, :].unsqueeze(1).repeat(1, self.pred_len, 1))
 
-        return dec_out,dec_out0 ##输出main和season
+        return dec_out,dec_out0 ##main and season
 
 
     def forward(self, x_enc, x_mark_enc, x_dec, x_mark_dec, mask=None):
