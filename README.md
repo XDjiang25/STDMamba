@@ -1,7 +1,7 @@
 # STDMamba: Spatio-Temporal Decomposition Mamba for Long-Term Fine-Grained SST Prediction
 Long-Term Fine-Grained Sea Surface Temperature Prediction based on Mamba2
 
-🚩**News**(February 23, 2025): To the best of our knowledge, this is the first time we have introduced state-space modeling, or linear attention, to SST prediction, and we will continue to innovate and improve in this direction, so if you are interested, please follow me on twitter!
+🚩**News**(February 23, 2025): To the best of our knowledge, this is the first time we have introduced state-space modeling, or linear attention, to SST prediction, and we will continue to innovate and improve in this direction, so if you are interested, please follow me on X!
 
 # Results✅
 ## Main Results on the Northwest Pacific dataset
