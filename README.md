@@ -1,5 +1,6 @@
 # STDMamba: Spatio-Temporal Decomposition Mamba for Long-Term Fine-Grained SST Prediction
 Long-Term Fine-Grained Sea Surface Temperature Prediction based on Mamba2
+
 🚩**News**(June 11, 2025): We have updated and uploaded a pdf file 'Experiments_details.pdf' for the experiments with hyperparameters in the paper as well as the details of the comparative experiments so that they can be reproduced.
 
 🚩**News**(March 31, 2025): We aim to continue to replace the original bi-directional mechanism in next work, commonly used in most time series models, with the directional Mamba mechanism we newly proposed.
