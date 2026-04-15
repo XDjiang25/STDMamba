@@ -101,7 +101,7 @@ librosa==0.11.0
 llvmlite==0.41.1
 local-attention==1.9.1
 lxml==5.3.0
-mamba-ssm @ file:///remote-home/jiangxudong/S-D-Mamba-new/S-D-Mamba-main/mamba_ssm-2.2.2%2Bcu118torch2.4cxx11abiFALSE-cp38-cp38-linux_x86_64.whl#sha256=117ce8e4d1522c6ecbb0e834cb26a51dc0d17cd12485e3ef91704be643398f7c
+mamba-ssm @ file:///remote-home/mamba_ssm-2.2.2%2Bcu118torch2.4cxx11abiFALSE-cp38-cp38-linux_x86_64.whl#sha256=117ce8e4d1522c6ecbb0e834cb26a51dc0d17cd12485e3ef91704be643398f7c
 MarkupSafe==2.1.5
 marshmallow==3.22.0
 matplotlib==3.7.2
