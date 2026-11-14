@@ -1,32 +1,46 @@
 # STDMamba: Spatio-Temporal Decomposition Mamba for Long-Term Fine-Grained SST Prediction
 
 <div align="center">
-  Xudong Jiang<sup>1</sup>, Mingshan LOO<sup>1</sup>, Wengen Li<sup>1</sup>, Mingrui Zhang<sup>1</sup>, Jihong Guan<sup>1</sup>, Shuigeng Zhou<sup>3</sup><br>
+  Xudong Jiang<sup>1</sup>, Shuyu Wang<sup>1</sup>, Wengen Li<sup>1</sup>,Hanchen Yang<sup>1</sup>, Jihong Guan<sup>1</sup>, Yichao Zhang<sup>1</sup>, Shuigeng Zhou<sup>2</sup><br>
   <sup>1</sup>Tongji University, Shanghai, China &emsp; 
   <sup>2</sup>Fudan University, Shanghai, China<br>
 </div>
 
-## Long-Term Fine-Grained Sea Surface Temperature Prediction based on Mamba2
+<br>
+
+<div align="center">
+  <img src="assets/STDMamba.png" width="100%" alt="STDMamba framework">
+</div>
 
 
-🚩**News**(June 18, 2025): We have updated and uploaded a pdf file 'Supplementary_Materials.pdf' for the experiments with hyperparameters in the paper as well as the details of the comparative experiments so that they can be reproduced.
+## :tada:Usage
+### :wrench:Setup
 
-🚩**News**(March 31, 2025): We aim to continue to replace the original bi-directional mechanism in next work, commonly used in most time series models, with the directional Mamba mechanism we newly proposed.
+The required dependencies for this project are listed in `requirements.txt`. You can install them using pip with the following command:
 
-🚩**News**(August 16, 2024): To the best of our knowledge, we are the first to introduce state-space models or Mamba into SST prediction, which solves the modeling difficulties and noise challenges of long-term fine-grained prediction and achieves SOTA performance with real datasets, and we will continue to innovate and improve in this direction, so if you are interested, please stay tuned for more information about our work!
+```bash
+pip install -r requirements.txt
+```
+
+(*Optional*) If you still encounter the package missing problem, you can refer to the [`requirements.txt`](./requirements.txt) file to download the packages you need. 
+
+**If you encounter other environment setting problems not mentioned in this README file, please contact us to report your problems or open an issue.**
 
 
-# Results✅
-## Main Results on the Northwest Pacific dataset
 
-Compared to the current SOTA models, STDMamba achieves superior performance on the Northwest Pacific dataset and Indian Ocean dataset from NOAA’s publicly available Sea Surface Temperature dataset.
+##  Citation
 
-![main results](fig_NPO.png "main results")
+If you find this repo helpful, please cite our paper. 
 
-## Main Results on the Indian Ocean dataset
-
-![main results](fig_INO.png "main results")
-
+```
+@article{jiang2025stdmamba,
+  title={STDMamba: Spatio-temporal decomposition Mamba for long-term fine-grained SST prediction},
+  author={Jiang, Xudong and Wang, Shuyu and Li, Wengen and Yang, Hanchen and Guan, Jihong and Zhang, Yichao and Zhou, Shuigeng},
+  journal={IEEE Transactions on Geoscience and Remote Sensing},
+  year={2025},
+  publisher={IEEE}
+}
+```
 
 
 
