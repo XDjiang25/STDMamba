@@ -9,7 +9,7 @@
 <br>
 
 <div align="center">
-  <img src="assets/STDMamba.png" width="100%" alt="STDMamba framework">
+  <img src="assets/structure.png" width="100%" alt="STDMamba framework">
 </div>
 
 
