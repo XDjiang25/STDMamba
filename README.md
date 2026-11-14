@@ -1,4 +1,11 @@
 # STDMamba: Spatio-Temporal Decomposition Mamba for Long-Term Fine-Grained SST Prediction
+
+<div align="center">
+  Xudong Jiang<sup>1</sup>, Mingshan LOO<sup>1</sup>, Wengen Li<sup>1</sup>, Mingrui Zhang<sup>1</sup>, Jihong Guan<sup>1</sup>, Shuigeng Zhou<sup>3</sup><br>
+  <sup>1</sup>Tongji University, Shanghai, China &emsp; 
+  <sup>2</sup>Fudan University, Shanghai, China<br>
+</div>
+
 ## Long-Term Fine-Grained Sea Surface Temperature Prediction based on Mamba2
 
 
